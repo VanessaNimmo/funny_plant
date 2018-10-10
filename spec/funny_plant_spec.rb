@@ -15,5 +15,12 @@ describe FunnyPlant do
       week = plant.week
       expect(week).to eq 0
     end
+
+    it 'should increment week by 1 when new_week is called' do
+      plant = FunnyPlant.new # initializes as 0
+      plant.new_week # increments by 1
+      week = plant.week
+      expect(week).to eq 1
+    end
   end
 end
