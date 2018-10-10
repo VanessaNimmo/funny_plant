@@ -8,4 +8,16 @@ class FunnyPlant
   def fruits_per_plant(week_grown_in)
     week_grown_in - 1
   end
+
+  def new_week
+    add_week
+    @week
+  end
+
+  private
+  attr_writer :week
+
+  def add_week
+    @week += 1
+  end
 end
