@@ -10,23 +10,23 @@ describe FunnyPlant do
       expect(fruits).to eq 1
     end
 
-    it 'should return 0 fruits grown in week 0 from 1 plant' do
+    it 'should return 0 fruits grown in week 1 from 1 plant' do
       plant = FunnyPlant.new
-      fruits = plant.fruits_per_plant(0)
+      fruits = plant.fruits_per_plant(1)
       expect(fruits).to eq 0
     end
 
-    it 'should return week 0 when week is called immediately after initialization' do
+    it 'should return week 1 when week is called immediately after initialization' do
       plant = FunnyPlant.new
       week = plant.week
-      expect(week).to eq 0
+      expect(week).to eq 1
     end
 
     it 'should increment week by 1 when new_week is called' do
-      plant = FunnyPlant.new # initializes as 0
+      plant = FunnyPlant.new # initializes as 1
       plant.new_week # increments by 1
       week = plant.week
-      expect(week).to eq 1
+      expect(week).to eq 2
     end
   end
 end
