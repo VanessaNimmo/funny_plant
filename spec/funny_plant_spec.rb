@@ -6,13 +6,13 @@ describe FunnyPlant do
     
     it 'should return 1 fruit grown in a week when one plant is in its second growing week' do
       plant = FunnyPlant.new
-      fruits = plant.fruits_per_plant(2)
+      fruits = plant.fruits(2)
       expect(fruits).to eq 1
     end
 
     it 'should return 0 fruits grown in week 1 from 1 plant' do
       plant = FunnyPlant.new
-      fruits = plant.fruits_per_plant(1)
+      fruits = plant.fruits(1)
       expect(fruits).to eq 0
     end
 
