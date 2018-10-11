@@ -4,6 +4,7 @@ class FunnyPlant
   def initialize
     @week = 1
   end
+
   # Calculate the fruits grown by one plant in a given week after planting
   def fruits(week_grown_in)
     week_grown_in - 1
@@ -15,7 +16,6 @@ class FunnyPlant
   end
 
   private
-  attr_writer :week
 
   def add_week
     @week += 1

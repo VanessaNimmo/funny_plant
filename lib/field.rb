@@ -1,14 +1,25 @@
 require_relative 'funny_plant'
 
 class Field
-  attr_reader :target_harvest
-  attr_accessor :plants, :week
+  attr_reader :target_harvest, :week
 
   def initialize(people_to_feed, seeds)
     @plants = plant(seeds)
     @target_harvest = people_to_feed
     @week = 1
   end
+
+  def calculate_weeks
+    fruits_produced = 0
+    fruits_produced = harvest
+    until fruits_produced > @target_harvest
+      increment_week
+      fruits_produced = harvest
+      plant(fruits_produced)
+    end
+  end
+
+  private
 
   def plant(seeds)
     if @plants
@@ -24,11 +35,11 @@ class Field
   end
 
   def increment_week
-    @plants.each do |plant|
-      plant.new_week
-      # p "plant week is #{plant.week}"
-    end
-    self.week += 1
+      @plants.each do |plant|
+        plant.new_week
+        # p "plant week is #{plant.week}"
+      end
+      @week += 1
   end
 
   def harvest
@@ -38,16 +49,6 @@ class Field
       # puts "harvest is #{harvest}"
     end
     harvest
-  end
-
-  def calculate_weeks
-    fruits_produced = 0
-    fruits_produced = self.harvest
-    until fruits_produced > @target_harvest
-      self.increment_week
-      fruits_produced = self.harvest
-      self.plant(fruits_produced)
-    end
   end
 end
 
